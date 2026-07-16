@@ -1,5 +1,5 @@
-from pymilvus import MilvusClient, DataType
-
+from pymilvus import MilvusClient, DataType, AnnSearchRequest, WeightedRanker, RRFRanker
+import random
 
 def operate_db():
     client = MilvusClient(uri='http://43.172.89.43:19530', user='root', password='5871258712')
@@ -155,9 +155,150 @@ def operate_entity():
     res = client.delete(collection_name='demo_v2', ids=[1,2,3,4], partition_name='partitionA')
     print(res)
 
+# entity实体数据的操作：查询
+def query_operation():
+    # # todo: 1. 单向量搜索
+    # res = client.search(
+    #     collection_name='demo_v2',
+    #     data=[[0.3580376395471989, -0.6023495712049978, 0.18414012509913835, -0.26286205330961354, 0.9029438446296592]],
+    #     search_params={"metric_type": "L2", "params": {}},
+    #     limit=2,
+    #     output_fields=["id", "vector"]
+    # )
+    # print(res)
+
+    # # todo: 2. 多向量搜索
+    # res = client.search(
+    #     collection_name='demo_v2',
+    #     data=[[0.19886812562848388, 0.06023560599112088, 0.6976963061752597, 0.2614474506242501, 0.838729485096104],
+    #           [0.3172005263489739, 0.9719044792798428, -0.36981146090600725, -0.4860894583077995, 0.95791889146345]],
+    #     limit=2,
+    #     search_params={"metric_type": "L2", "params": {}},
+    #     output_fields=["id", "vector"]
+    # )
+    # print(res)
+
+    # todo: 3. 分区搜索
+    # 要进行分区搜索，只需在搜索请求的 partition_names 中包含目标分区的名称即可。这指定search操作仅考虑指定分区内的向量。
+    # res = client.search(
+    #     collection_name='demo_v2',
+    #     data=[[0.3580376395471989, -0.6023495712049978, 0.18414012509913835, -0.26286205330961354, 0.9029438446296592]],
+    #     limit=5,
+    #     search_params={"metric_type": "L2", "params": {}},
+    #     partition_names=['partitionA']
+    # )
+    # print(res)
+
+    # todo: 4.使用输出字段进行搜索
+    # 使用输出字段进行搜索允许您指定搜索结果中应包含匹配向量的哪些属性或字段。
+    # res = client.search(
+    #     collection_name="demo_v2",
+    #     data=[[0.3580376395471989, -0.6023495712049978, 0.18414012509913835, -0.26286205330961354, 0.9029438446296592]],
+    #     limit=5,
+    #     search_params={"metric_type": "IP", "params": {}},
+    #     output_fields=['vector', "color"]  # 返回定义的字段
+    # )
+    # print(res)
+
+    # todo: 5.过滤搜索
+    # 过滤器搜索：筛选搜索将标量筛选器应用于矢量搜索，允许我们根据特定条件优化搜索结果。
+    # 例如，要根据字符串模式优化搜索结果，可以使用 like 运算符。此运算符通过考虑前缀、中缀和后缀来启用字符串匹配：
+    # 筛选颜色以红色为前缀的结果：
+    # res = client.search(
+    #     collection_name='demo_v2',
+    #     data=[[-0.5570353903748935, -0.8997887893201304, -0.7123782431855732, -0.6298990746450119, 0.6699215060604258]],
+    #     limit=5,
+    #     search_params={"metric_type": "L2", "params": {}},
+    #     output_fields=["color"],
+    #     filter='color like "red%"'
+    # )
+    # print(res)
+
+    # todo: 6.范围搜索
+    # 范围搜索允许查找距查询向量指定距离范围内的向量。
+    # 范围搜索:radius：定义搜索空间的外边界。只有距查询向量在此距离内的向量才被视为潜在匹配。
+    # range_filter：虽然radius设置搜索的外部限制，但可以选择使用range_filter来定义内部边界，创建一个距离范围，在该范围内向量必须落下才被视为匹配。
+    search_params = {
+        "metric_type": "L2",
+        "params": {
+            "radius": 0.8,
+            "range_filter": 0.6
+        }}
+    res = client.search(
+        collection_name='demo_v2',
+        data=[[0.3580376395471989, -0.6023495712049978, 0.18414012509913835, -0.26286205330961354, 0.9029438446296592]],
+        limit=3,
+        search_params=search_params,
+    )
+    print(res)
+
+def complex_query():
+    # # 定义schema
+    # schema = client.create_schema(enable_dynamic_field=False)
+    # schema.add_field(field_name='film_id', datatype=DataType.INT64, is_primary=True)
+    # schema.add_field(field_name='filmVector', datatype=DataType.FLOAT_VECTOR, dim=5)  # 向量字段
+    # schema.add_field(field_name="posterVector", datatype=DataType.FLOAT_VECTOR, dim=5)  # 向量字段
+    # # #
+    # # 定义索引
+    # index_params = client.prepare_index_params()
+    # index_params.add_index(field_name='filmVector', index_type="IVF_FLAT",
+    #                        metric_type="L2", params={"nlist": 128})
+    # index_params.add_index(field_name='posterVector', index_type="",
+    #                        metric_type="COSINE")
+    #
+    # # 创建集合
+    # client.create_collection(collection_name='demo_v3', schema=schema, index_params=index_params)
+    #
+    # # 向量库中插入实体
+    # entities = []
+    # for _ in range(1000):
+    #     # 构造实体
+    #     film_id = random.randint(1, 10000)
+    #     film_vector = [random.random() for _ in range(5)]
+    #     poster_vector = [random.random() for _ in range(5)]
+    #     entity = {"film_id": film_id, "filmVector": film_vector, "posterVector": poster_vector}
+    #     entities.append(entity)
+    #
+    # client.insert(collection_name='demo_v3', data=entities)
+
+    # 多向量查询（注意和批量向量查询不同）
+    # 多向量搜索使用 hybrid_search() API 在一次调用中执行多个 ANN 搜索请求。每个 AnnSearchRequest 代表特定矢量场上的单个搜索请求。
+    # 示例创建两个 AnnSearchRequest 实例以对两个向量字段执行单独的相似性搜索。
+    # 创建多搜索请求 filmVector
+    query_filmVector = [[0.8896863042430693, 0.370613100114602, 0.23779315077113428, 0.38227915951132996, 0.5997064603128835]]
+    search_param1 = {
+        "data": query_filmVector,
+        "anns_field": "filmVector",
+        "limit": 2,
+        "param": {"metric_type": "L2", "nprobe": 10}
+    }
+    request1 = AnnSearchRequest(**search_param1)
+
+    query_posterVector = [[0.02550758562349764, 0.006085637357292062, 0.5325251250159071, 0.7676432650114147, 0.5521074424751443]]
+    search_param2 = {
+        "data": query_posterVector,
+        "anns_field": "posterVector",
+        "limit": 2,
+        "param": {"metric_type": "COSINE"}
+    }
+    request2 = AnnSearchRequest(**search_param2)
+    requests = [request1, request2]
+    ranker = RRFRanker()
+    ranker = WeightedRanker(0.8, 0.3)
+    res = client.hybrid_search(
+        collection_name='demo_v3',
+        reqs=requests,
+        ranker=ranker,
+        limit=2
+    )
+    for result in res:
+        for item in result:
+            print(item)
 
 
 if __name__ == '__main__':
     # operate_db()
     # operate_collection()
     # operate_entity()
+    # query_operation()
+    complex_query()
