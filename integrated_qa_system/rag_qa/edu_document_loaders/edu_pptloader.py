@@ -100,6 +100,6 @@ class OCRPPTLoader(BaseLoader):
 
 
 if __name__ == '__main__':
-    img_loader = OCRPPTLoader(filepath='/Users/ligang/Desktop/EduRAG课堂资料/codes/integrated_qa_system/rag_qa/samples/ocr_01.pptx')
+    img_loader = OCRPPTLoader(filepath=r'E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\samples\ocr_01.pptx')
     doc = img_loader.load()
     print(doc)

@@ -114,6 +114,6 @@ class OCRDOCLoader(BaseLoader):
 
 
 if __name__ == '__main__':
-    docx_loader = OCRDOCLoader(filepath='/Users/ligang/PycharmProjects/LLM/EducationRAG/samples/ocr_02.docx')
+    docx_loader = OCRDOCLoader(filepath=r'E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\samples\ocr_02.docx')
     doc = docx_loader.load()
     print(doc)

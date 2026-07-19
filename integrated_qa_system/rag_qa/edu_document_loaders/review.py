@@ -55,4 +55,4 @@ def ppt2text(filepath):
                 print(f'da')
         print('*'*80)
 if __name__ == '__main__':
-    ppt2text(filepath='/Users/ligang/PycharmProjects/LLM/EducationRAG/data/01.pptx')
+    ppt2text(filepath=r'E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\samples\ocr_01.pptx')

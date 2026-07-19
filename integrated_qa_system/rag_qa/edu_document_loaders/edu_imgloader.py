@@ -37,6 +37,6 @@ class OCRIMGLoader(BaseLoader):
 
 
 if __name__ == '__main__':
-    img_loader = OCRIMGLoader(img_path='/Users/ligang/Desktop/EduRAG课堂资料/codes/integrated_qa_system/rag_qa/samples/ocr_04.png')
+    img_loader = OCRIMGLoader(img_path=r'E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\samples\ocr_04.png')
     doc = img_loader.load()
     print(doc)

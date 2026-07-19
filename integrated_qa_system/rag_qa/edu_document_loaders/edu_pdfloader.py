@@ -113,7 +113,7 @@ class OCRPDFLoader(BaseLoader):
         return rotated_img
 
 if __name__ == '__main__':
-    pdf_loader = OCRPDFLoader(file_path="/Users/ligang/Desktop/EduRAG课堂资料/codes/integrated_qa_system/rag_qa/samples/ocr_03.pdf")
+    pdf_loader = OCRPDFLoader(file_path=r"E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\samples\ocr_03.pdf")
     doc = pdf_loader.load()
 
     print(type(doc))
