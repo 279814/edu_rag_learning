@@ -11,10 +11,6 @@ from base import logger
 from retrieval import BM25Search
 
 
-
-
-
-
 class MySQLQASystem:
     def __init__(self):
         # 初始化日志

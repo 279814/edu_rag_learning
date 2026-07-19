@@ -8,3 +8,6 @@ wheels/
 
 # Virtual environments
 .venv
+
+#配置文件
+*.ini
