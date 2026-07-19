@@ -11,3 +11,10 @@ wheels/
 
 #配置文件
 *.ini
+
+#模型
+integrated_qa_system/rag_qa/models/
+
+#数据
+integrated_qa_system/rag_qa/data/
+integrated_qa_system/rag_qa/samples/
