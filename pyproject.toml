@@ -160,7 +160,7 @@ dependencies = [
     "torchaudio>=2.7.0",
     "torchvision>=0.22.0",
     "tqdm>=4.67.1",
-    "transformers>=4.51.3",
+    "transformers==4.51.3",
     "trec-car-tools>=2.6",
     "typer>=0.15.2",
     "typing-extensions>=4.12.2",
