@@ -587,3 +587,11 @@ requirepass 123
 2026-07-19 09:10:08,365 - EduRAG - INFO - 查询处理耗时 0.23秒
 2026-07-19 09:10:27,398 - EduRAG - INFO - 退出 MySQL 系统
 2026-07-19 09:10:27,399 - EduRAG - INFO - MySQL 连接已关闭
+2026-07-20 12:34:21,377 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\LLM基础知识.pdf
+2026-07-20 12:34:28,923 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md
+2026-07-20 12:34:31,325 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf
+2026-07-20 12:34:31,325 - EduRAG - INFO - 加载的文档数量: 3
+2026-07-20 12:34:31,325 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\LLM基础知识.pdf, 使用切分器: ChineseRecursive
+2026-07-20 12:34:31,326 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md, 使用切分器: Markdown
+2026-07-20 12:34:31,327 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf, 使用切分器: ChineseRecursive
+2026-07-20 12:34:31,359 - EduRAG - INFO - 处理完成，生成的子块数量: 2094
