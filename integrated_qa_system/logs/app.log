@@ -595,3 +595,13 @@ requirepass 123
 2026-07-20 12:34:31,326 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md, 使用切分器: Markdown
 2026-07-20 12:34:31,327 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf, 使用切分器: ChineseRecursive
 2026-07-20 12:34:31,359 - EduRAG - INFO - 处理完成，生成的子块数量: 2094
+2026-07-20 18:29:40,490 - EduRAG - INFO - 使用 cpu 设备
+2026-07-20 18:33:34,696 - EduRAG - INFO - 使用 cpu 设备
+2026-07-20 18:33:53,339 - EduRAG - INFO - 使用 cpu 设备
+2026-07-20 18:35:19,958 - EduRAG - INFO - 使用 cpu 设备
+2026-07-20 18:35:56,097 - EduRAG - INFO - 使用 cpu 设备
+2026-07-20 18:48:07,043 - EduRAG - INFO - 使用 cpu 设备
+2026-07-20 18:48:33,278 - EduRAG - INFO - 使用 cpu 设备
+2026-07-20 18:49:54,526 - EduRAG - INFO - 使用 cpu 设备
+2026-07-20 19:02:19,622 - EduRAG - INFO - 使用 cpu 设备
+2026-07-20 19:02:28,567 - EduRAG - INFO - 已创建集合 edurag_final
