@@ -4,14 +4,16 @@ from langchain_core.documents import Document
 from sentence_transformers import CrossEncoder
 import hashlib
 import os, sys, torch
+import numpy as np
 
 current_file = os.path.abspath(__file__)
 module_dir = os.path.dirname(os.path.dirname(current_file))
 project_root = os.path.dirname(module_dir)
 sys.path.insert(0, project_root)
+sys.path.insert(0, module_dir)
 
 from base import logger, Config
-
+from core import process_documents
 conf = Config()
 
 
@@ -108,7 +110,50 @@ class VectorStore:
         # 将集合加载到内存，确保可立即查询
         self.client.load_collection(self.collection_name)
 
+    def add_documents(self, documents):
+        texts = [doc.page_content for doc in documents]
+        embeddings = self.embedding_function(texts)
+        data = []
+
+        for i, doc in enumerate(documents):
+            text_hash = hashlib.md5(doc.page_content.encode('utf-8')).hexdigest()
+            sparse_vector = {}
+            row = embeddings['sparse'][i]
+            # print(row)
+            indices = row.coords[0].tolist()
+            values = row.data
+            # print(indices, values)
+            for index, value in zip(indices, values):
+                sparse_vector[index] = value
+            # print(sparse_vector)
+            data.append({
+                "id": text_hash,
+                "text": doc.page_content,
+                "dense_vector": np.asarray(embeddings["dense"][i], dtype=np.float16),
+                "sparse_vector": sparse_vector,
+                "parent_id": doc.metadata["parent_id"],
+                "parent_content": doc.metadata["parent_content"],
+                "source": doc.metadata.get("source", "unknown"),
+                "timestamp": doc.metadata.get("timestamp", "unknown")
+            })
+            # 检查是否有数据需要插入
+        if data:
+            # 使用 upsert 操作插入数据，覆盖重复 ID
+            self.client.upsert(collection_name=self.collection_name, data=data)
+            # 记录插入或更新的文档数量日志
+            logger.info(f"已向Milvus数据库插入或更新 {len(data)} 个文档")
+
 
 
 if __name__ == "__main__":
     vector_store = VectorStore()
+    documents = []
+    # documents.append(Document(page_content="This is a test document.", metadata={"parent_id": "123", "parent_content": "This is a test parent content.", "source": "test", "timestamp": "2023-04-01T12:00:00Z"}))
+    # 加载数据目录
+    data_dir = os.path.join(module_dir, 'data')
+    root, dirs, files = next(os.walk(data_dir))
+    for dir in dirs:
+        documents.extend(process_documents(directory_path=os.path.join(data_dir, dir)))
+
+    # 添加文档到向量存储
+    vector_store.add_documents(documents)

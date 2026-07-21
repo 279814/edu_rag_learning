@@ -605,3 +605,93 @@ requirepass 123
 2026-07-20 18:49:54,526 - EduRAG - INFO - 使用 cpu 设备
 2026-07-20 19:02:19,622 - EduRAG - INFO - 使用 cpu 设备
 2026-07-20 19:02:28,567 - EduRAG - INFO - 已创建集合 edurag_final
+2026-07-21 11:14:23,981 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 11:14:27,281 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 11:27:16,426 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 11:27:19,424 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 11:30:46,413 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 11:30:50,483 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 11:31:07,475 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\agent_data\Hello-Agents-V1.0.2-20260210.pdf
+2026-07-21 11:31:07,475 - EduRAG - INFO - 加载的文档数量: 1
+2026-07-21 11:31:07,475 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\agent_data\Hello-Agents-V1.0.2-20260210.pdf, 使用切分器: ChineseRecursive
+2026-07-21 11:31:07,527 - EduRAG - INFO - 处理完成，生成的子块数量: 3238
+2026-07-21 11:31:08,452 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\LLM基础知识.pdf
+2026-07-21 11:31:10,657 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md
+2026-07-21 11:31:12,823 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf
+2026-07-21 11:31:12,823 - EduRAG - INFO - 加载的文档数量: 3
+2026-07-21 11:31:12,823 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\LLM基础知识.pdf, 使用切分器: ChineseRecursive
+2026-07-21 11:31:12,824 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md, 使用切分器: Markdown
+2026-07-21 11:31:12,825 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf, 使用切分器: ChineseRecursive
+2026-07-21 11:31:12,858 - EduRAG - INFO - 处理完成，生成的子块数量: 2094
+2026-07-21 11:31:19,247 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\java_data\java手册.pdf
+2026-07-21 11:31:19,247 - EduRAG - INFO - 加载的文档数量: 1
+2026-07-21 11:31:19,247 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\java_data\java手册.pdf, 使用切分器: ChineseRecursive
+2026-07-21 11:31:19,252 - EduRAG - INFO - 处理完成，生成的子块数量: 321
+2026-07-21 12:28:56,061 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 12:28:59,822 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 12:29:22,884 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\agent_data\Hello-Agents-V1.0.2-20260210.pdf
+2026-07-21 12:29:22,884 - EduRAG - INFO - 加载的文档数量: 1
+2026-07-21 12:29:22,884 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\agent_data\Hello-Agents-V1.0.2-20260210.pdf, 使用切分器: ChineseRecursive
+2026-07-21 12:29:22,945 - EduRAG - INFO - 处理完成，生成的子块数量: 3238
+2026-07-21 12:29:24,011 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\LLM基础知识.pdf
+2026-07-21 12:29:26,165 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md
+2026-07-21 12:29:28,857 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf
+2026-07-21 12:29:28,857 - EduRAG - INFO - 加载的文档数量: 3
+2026-07-21 12:29:28,857 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\LLM基础知识.pdf, 使用切分器: ChineseRecursive
+2026-07-21 12:29:28,858 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md, 使用切分器: Markdown
+2026-07-21 12:29:28,859 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf, 使用切分器: ChineseRecursive
+2026-07-21 12:29:28,898 - EduRAG - INFO - 处理完成，生成的子块数量: 2094
+2026-07-21 12:29:37,492 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\java_data\java手册.pdf
+2026-07-21 12:29:37,492 - EduRAG - INFO - 加载的文档数量: 1
+2026-07-21 12:29:37,493 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\java_data\java手册.pdf, 使用切分器: ChineseRecursive
+2026-07-21 12:29:37,502 - EduRAG - INFO - 处理完成，生成的子块数量: 321
+2026-07-21 13:00:13,609 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 13:00:16,640 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 13:12:24,851 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 13:12:29,263 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 13:13:03,855 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 13:13:07,168 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 13:13:32,128 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 13:13:35,575 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 13:22:00,573 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 13:22:03,985 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 13:23:58,899 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 13:24:03,304 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 13:24:26,319 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\agent_data\Hello-Agents-V1.0.2-20260210.pdf
+2026-07-21 13:24:26,319 - EduRAG - INFO - 加载的文档数量: 1
+2026-07-21 13:24:26,319 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\agent_data\Hello-Agents-V1.0.2-20260210.pdf, 使用切分器: ChineseRecursive
+2026-07-21 13:24:26,383 - EduRAG - INFO - 处理完成，生成的子块数量: 3238
+2026-07-21 13:24:27,500 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\LLM基础知识.pdf
+2026-07-21 13:24:29,690 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md
+2026-07-21 13:24:32,364 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf
+2026-07-21 13:24:32,364 - EduRAG - INFO - 加载的文档数量: 3
+2026-07-21 13:24:32,364 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\LLM基础知识.pdf, 使用切分器: ChineseRecursive
+2026-07-21 13:24:32,365 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md, 使用切分器: Markdown
+2026-07-21 13:24:32,366 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf, 使用切分器: ChineseRecursive
+2026-07-21 13:24:32,405 - EduRAG - INFO - 处理完成，生成的子块数量: 2094
+2026-07-21 13:24:41,075 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\java_data\java手册.pdf
+2026-07-21 13:24:41,075 - EduRAG - INFO - 加载的文档数量: 1
+2026-07-21 13:24:41,075 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\java_data\java手册.pdf, 使用切分器: ChineseRecursive
+2026-07-21 13:24:41,085 - EduRAG - INFO - 处理完成，生成的子块数量: 321
+2026-07-21 14:04:05,096 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 14:04:08,214 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 14:04:09,424 - EduRAG - INFO - 已向Milvus数据库插入或更新 1 个文档
+2026-07-21 14:12:18,735 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 14:12:22,808 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 14:12:45,959 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\agent_data\Hello-Agents-V1.0.2-20260210.pdf
+2026-07-21 14:12:45,960 - EduRAG - INFO - 加载的文档数量: 1
+2026-07-21 14:12:45,960 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\agent_data\Hello-Agents-V1.0.2-20260210.pdf, 使用切分器: ChineseRecursive
+2026-07-21 14:12:46,021 - EduRAG - INFO - 处理完成，生成的子块数量: 3238
+2026-07-21 14:12:47,156 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\LLM基础知识.pdf
+2026-07-21 14:12:49,223 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md
+2026-07-21 14:12:51,916 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf
+2026-07-21 14:12:51,916 - EduRAG - INFO - 加载的文档数量: 3
+2026-07-21 14:12:51,916 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\LLM基础知识.pdf, 使用切分器: ChineseRecursive
+2026-07-21 14:12:51,917 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\人工智能就业课课程大纲.md, 使用切分器: Markdown
+2026-07-21 14:12:51,918 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\ai_data\神经网络与深度学习.pdf, 使用切分器: ChineseRecursive
+2026-07-21 14:12:51,957 - EduRAG - INFO - 处理完成，生成的子块数量: 2094
+2026-07-21 14:13:00,352 - EduRAG - INFO - 成功加载文件: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\java_data\java手册.pdf
+2026-07-21 14:13:00,352 - EduRAG - INFO - 加载的文档数量: 1
+2026-07-21 14:13:00,352 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\java_data\java手册.pdf, 使用切分器: ChineseRecursive
+2026-07-21 14:13:00,362 - EduRAG - INFO - 处理完成，生成的子块数量: 321
+2026-07-21 14:39:07,474 - EduRAG - INFO - 已向Milvus数据库插入或更新 5653 个文档
