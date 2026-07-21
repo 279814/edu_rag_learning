@@ -695,3 +695,9 @@ requirepass 123
 2026-07-21 14:13:00,352 - EduRAG - INFO - 处理文档: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\data\java_data\java手册.pdf, 使用切分器: ChineseRecursive
 2026-07-21 14:13:00,362 - EduRAG - INFO - 处理完成，生成的子块数量: 321
 2026-07-21 14:39:07,474 - EduRAG - INFO - 已向Milvus数据库插入或更新 5653 个文档
+2026-07-21 19:43:38,577 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 19:43:42,657 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 19:44:25,293 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 19:44:28,985 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-21 19:46:24,671 - EduRAG - INFO - 使用 cpu 设备
+2026-07-21 19:46:28,906 - EduRAG - INFO - 已加载集合 edurag_final
