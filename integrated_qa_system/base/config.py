@@ -60,6 +60,9 @@ class Config():
         # 最终候选数量
         self.CANDIDATE_M = self.config.getint('retrieval', 'candidate_m', fallback=2)
 
+        #应用配置
+        self.CUSTOMER_SERVICE_PHONE = self.config.get('app', 'customer_service_phone')
+
 if __name__ == '__main__':
     config = Config()
     # print(config_file)
@@ -76,19 +79,21 @@ if __name__ == '__main__':
     #
     # print(config.LOG_FILE)
 
-    print(config.MILVUS_HOST)
-    print(config.MILVUS_PORT)
-    print(config.MILVUS_USER)
-    print(config.MILVUS_PASSWORD)
-    print(config.MILVUS_DATABASE_NAME)
-    print(config.MILVUS_COLLECTION_NAME)
+    # print(config.MILVUS_HOST)
+    # print(config.MILVUS_PORT)
+    # print(config.MILVUS_USER)
+    # print(config.MILVUS_PASSWORD)
+    # print(config.MILVUS_DATABASE_NAME)
+    # print(config.MILVUS_COLLECTION_NAME)
+    #
+    # print(config.LLM_MODEL)
+    # print(config.DASHSCOPE_API_KEY)
+    # print(config.DASHSCOPE_BASE_URL)
+    #
+    # print(config.PARENT_CHUNK_SIZE)
+    # print(config.CHILD_CHUNK_SIZE)
+    # print(config.CHUNK_OVERLAP)
+    # print(config.RETRIEVAL_K)
+    # print(config.CANDIDATE_M)
 
-    print(config.LLM_MODEL)
-    print(config.DASHSCOPE_API_KEY)
-    print(config.DASHSCOPE_BASE_URL)
-
-    print(config.PARENT_CHUNK_SIZE)
-    print(config.CHILD_CHUNK_SIZE)
-    print(config.CHUNK_OVERLAP)
-    print(config.RETRIEVAL_K)
-    print(config.CANDIDATE_M)
+    print(config.CUSTOMER_SERVICE_PHONE)

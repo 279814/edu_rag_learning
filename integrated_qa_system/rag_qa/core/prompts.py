@@ -68,7 +68,12 @@ class RAGPrompts:
         #   创建并返回 PromptTemplate 对象
         return PromptTemplate(
             template="""  
-            将以下复杂查询分解为多个简单子查询，每行一个子查询：  
+            将以下复杂查询分解为多个简单子查询，每行一个子查询，最多两个子查询，只保留子查询问题，其他内容不要包含：
+            examples:
+            查询: 比较 MySQL 和 Redis 数据库的优缺点
+            子查询:
+            MySQL优缺点有哪些
+            Redis优缺点有哪些
             查询: {query}  
             子查询:  
             """,
