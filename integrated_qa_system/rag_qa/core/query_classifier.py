@@ -72,7 +72,7 @@ class QueryClassifier:
         # 设置训练参数
         training_args = TrainingArguments(
             output_dir=os.path.join(model_dir_path, 'bert_results'),
-            num_train_epochs=10,
+            num_train_epochs=3,
             per_device_train_batch_size=8,
             per_device_eval_batch_size=8,
             warmup_steps=150,
@@ -164,11 +164,35 @@ class QueryClassifier:
         )
         return encodings, [self.label_map[label] for label in labels]
 
+    def predict_category(self, query):
+        # 检查模型是否加载
+        if self.model is None:
+            # 模型未加载，记录错误
+            logger.error("模型未训练或加载")
+            # 默认返回通用知识
+            return "通用知识"
+        # 对查询进行编码
+        encoding = self.tokenizer(query, truncation=True, padding='max_length', max_length=500, return_tensors="pt")
+        # 将编码移到指定设备
+        encoding = {k: v.to(self.device) for k, v in encoding.items()}
+        self.model.eval()
+        # 不计算梯度，进行预测
+        with torch.no_grad():
+            # 获取模型输出
+            outputs = self.model(**encoding)
+            # 获取预测结果
+            prediction = torch.argmax(outputs.logits, dim=1).item()
+        # 根据预测结果返回类别
+        return "专业咨询" if prediction == 1 else "通用知识"
 
 
 if __name__ == '__main__':
     query_classifier = QueryClassifier()
-    query_classifier.train_model()
+    # query_classifier.train_model()
+    result = query_classifier.predict_category("什么是AI")
+    print(result)
+    result = query_classifier.predict_category("AI学科的课程大纲是什么")
+    print(result)
 
 
 

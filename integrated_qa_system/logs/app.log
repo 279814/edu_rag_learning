@@ -714,3 +714,6 @@ requirepass 123
 2026-07-22 18:47:21,838 - EduRAG - INFO - 初始化新 BERT 模型
 2026-07-22 18:57:45,004 - EduRAG - INFO - 使用cpu设备
 2026-07-22 18:57:45,483 - EduRAG - INFO - 初始化新 BERT 模型
+2026-07-22 20:19:47,210 - EduRAG - INFO - 使用cpu设备
+2026-07-22 20:19:47,714 - EduRAG - INFO - 初始化新 BERT 模型
+2026-07-22 20:19:47,901 - EduRAG - INFO - 开始训练模型
