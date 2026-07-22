@@ -701,3 +701,16 @@ requirepass 123
 2026-07-21 19:44:28,985 - EduRAG - INFO - 已加载集合 edurag_final
 2026-07-21 19:46:24,671 - EduRAG - INFO - 使用 cpu 设备
 2026-07-21 19:46:28,906 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-22 18:07:42,833 - EduRAG - INFO - 使用cpu设备
+2026-07-22 18:24:29,700 - EduRAG - INFO - 使用cpu设备
+2026-07-22 18:24:30,318 - EduRAG - INFO - 初始化新 BERT 模型
+2026-07-22 18:34:07,879 - EduRAG - INFO - 使用cpu设备
+2026-07-22 18:34:08,392 - EduRAG - INFO - 初始化新 BERT 模型
+2026-07-22 18:35:15,900 - EduRAG - INFO - 使用cpu设备
+2026-07-22 18:35:16,397 - EduRAG - INFO - 初始化新 BERT 模型
+2026-07-22 18:46:15,664 - EduRAG - INFO - 使用cpu设备
+2026-07-22 18:46:16,154 - EduRAG - INFO - 初始化新 BERT 模型
+2026-07-22 18:47:21,371 - EduRAG - INFO - 使用cpu设备
+2026-07-22 18:47:21,838 - EduRAG - INFO - 初始化新 BERT 模型
+2026-07-22 18:57:45,004 - EduRAG - INFO - 使用cpu设备
+2026-07-22 18:57:45,483 - EduRAG - INFO - 初始化新 BERT 模型
