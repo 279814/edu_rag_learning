@@ -72,10 +72,10 @@ class QueryClassifier:
         # 设置训练参数
         training_args = TrainingArguments(
             output_dir=os.path.join(model_dir_path, 'bert_results'),
-            num_train_epochs=3,
+            num_train_epochs=2,
             per_device_train_batch_size=8,
             per_device_eval_batch_size=8,
-            warmup_steps=150,
+            warmup_steps=50,
             weight_decay=0.01,
             logging_dir=os.path.join(model_dir_path, 'bert_logs'),
             logging_steps=10,

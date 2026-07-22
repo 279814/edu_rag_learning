@@ -717,3 +717,24 @@ requirepass 123
 2026-07-22 20:19:47,210 - EduRAG - INFO - 使用cpu设备
 2026-07-22 20:19:47,714 - EduRAG - INFO - 初始化新 BERT 模型
 2026-07-22 20:19:47,901 - EduRAG - INFO - 开始训练模型
+2026-07-22 21:02:12,515 - EduRAG - INFO - 使用cpu设备
+2026-07-22 21:02:13,040 - EduRAG - INFO - 初始化新 BERT 模型
+2026-07-22 21:03:32,636 - EduRAG - INFO - 使用cpu设备
+2026-07-22 21:03:33,081 - EduRAG - INFO - 初始化新 BERT 模型
+2026-07-22 21:03:33,277 - EduRAG - INFO - 开始训练模型
+2026-07-22 21:25:34,335 - EduRAG - INFO - 模型保存至: E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-22 21:26:06,072 - EduRAG - INFO - 分类报告:
+2026-07-22 21:26:06,102 - EduRAG - INFO -               precision    recall  f1-score   support
+
+        通用知识       1.00      0.99      0.99       166
+        专业咨询       0.99      1.00      1.00       200
+
+    accuracy                           0.99       366
+   macro avg       1.00      0.99      0.99       366
+weighted avg       0.99      0.99      0.99       366
+
+2026-07-22 21:26:06,103 - EduRAG - INFO - 混淆矩阵:
+2026-07-22 21:26:06,108 - EduRAG - INFO - [[164   2]
+ [  0 200]]
+2026-07-22 21:28:02,522 - EduRAG - INFO - 使用cpu设备
+2026-07-22 21:28:02,552 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
