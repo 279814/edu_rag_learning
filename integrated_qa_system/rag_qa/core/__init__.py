@@ -6,3 +6,6 @@ sys.path.insert(0, model_path)
 
 from document_processor import process_documents
 from vector_store import VectorStore
+from prompts import RAGPrompts
+from query_classifier import QueryClassifier
+from strategy_selector import StrategySelector

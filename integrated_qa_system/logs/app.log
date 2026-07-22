@@ -742,3 +742,7 @@ weighted avg       0.99      0.99      0.99       366
 2026-07-22 22:16:22,594 - EduRAG - INFO - 为查询 'Agent的应用领域有哪些?' 选择的检索策略：假设问题检索
 2026-07-22 22:16:26,536 - EduRAG - INFO - 为查询 '比较 MySQL 和 MongoDB 的优缺点。' 选择的检索策略：子查询检索
 2026-07-22 22:16:31,679 - EduRAG - INFO - 为查询 '向Mysql插入100w条数据，可以吗？' 选择的检索策略：回溯问题检索
+2026-07-23 00:09:47,484 - EduRAG - INFO - 使用 cpu 设备
+2026-07-23 00:09:52,042 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-23 00:09:53,094 - EduRAG - INFO - 使用cpu设备
+2026-07-23 00:09:53,121 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
