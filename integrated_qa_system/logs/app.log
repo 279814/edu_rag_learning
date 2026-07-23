@@ -894,3 +894,15 @@ weighted avg       0.99      0.99      0.99       366
 2026-07-23 13:20:44,687 - EduRAG - INFO - 构建上下文完成，包含 2 个文档块
 2026-07-23 13:21:11,204 - EduRAG - INFO - 查询处理完成 (耗时: 32.68s, 查询: 'AI学科的课程大纲')
 2026-07-23 13:21:59,465 - EduRAG - INFO - 用户退出查询模式
+2026-07-23 14:06:36,285 - EduRAG - INFO - 使用 cpu 设备
+2026-07-23 14:06:40,161 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-23 14:06:40,627 - EduRAG - INFO - 进入交互式查询模式...
+2026-07-23 14:06:40,644 - EduRAG - INFO - 使用cpu设备
+2026-07-23 14:06:40,669 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-23 14:06:43,639 - EduRAG - INFO - 用户退出查询模式
+2026-07-23 14:10:55,188 - EduRAG - INFO - 使用 cpu 设备
+2026-07-23 14:11:01,875 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-23 14:11:03,115 - EduRAG - INFO - 进入交互式查询模式...
+2026-07-23 14:11:03,133 - EduRAG - INFO - 使用cpu设备
+2026-07-23 14:11:03,156 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-23 14:13:33,104 - EduRAG - INFO - 用户退出查询模式

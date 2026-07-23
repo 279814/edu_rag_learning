@@ -135,12 +135,12 @@ def main(query_mode=True, directory_path=os.path.join(model_dir_path, 'data')):
 
 
 if __name__ == "__main__":
-    main(query_mode=True)
+    # main(query_mode=True)
 
     # 或者通过命令行参数控制
-    # import argparse
-    # parser = argparse.ArgumentParser(description="EduRAG System Main Entry Point")
-    # parser.add_argument('--data-processing', action='store_true', help='Run in data processing mode instead of query mode.')
-    # parser.add_argument('--data-dir', type=str, default='./data', help='Path to the data directory.')
-    # args = parser.parse_args()
-    # main(query_mode=(not args.data_processing), directory_path=args.data_dir)
+    import argparse
+    parser = argparse.ArgumentParser(description="EduRAG System Main Entry Point")
+    parser.add_argument('--data-processing', action='store_true', help='Run in data processing mode instead of query mode.')
+    parser.add_argument('--data-dir', type=str, default='./data', help='Path to the data directory.')
+    args = parser.parse_args()
+    main(query_mode=(not args.data_processing), directory_path=args.data_dir)
