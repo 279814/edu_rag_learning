@@ -42,6 +42,7 @@ class Config():
         # LLM 配置
         # LLM 模型名
         self.LLM_MODEL = self.config.get('llm', 'model', fallback='qwen-plus')
+        self.EMBEDDING_MODEL = self.config.get('llm', 'embedding_model', fallback='qwen-plus')
         # DashScope API 密钥
         self.DASHSCOPE_API_KEY = self.config.get('llm', 'dashscope_api_key')
         # DashScope API 地址
@@ -98,4 +99,5 @@ if __name__ == '__main__':
     # print(config.CANDIDATE_M)
 
     # print(config.CUSTOMER_SERVICE_PHONE)
-    print(config.VALID_SOURCES)
+    # print(config.VALID_SOURCES)
+    print(config.EMBEDDING_MODEL)
