@@ -62,6 +62,7 @@ class Config():
 
         #应用配置
         self.CUSTOMER_SERVICE_PHONE = self.config.get('app', 'customer_service_phone')
+        self.VALID_SOURCES = eval(self.config.get('app', 'valid_sources'))
 
 if __name__ == '__main__':
     config = Config()
@@ -96,4 +97,5 @@ if __name__ == '__main__':
     # print(config.RETRIEVAL_K)
     # print(config.CANDIDATE_M)
 
-    print(config.CUSTOMER_SERVICE_PHONE)
+    # print(config.CUSTOMER_SERVICE_PHONE)
+    print(config.VALID_SOURCES)

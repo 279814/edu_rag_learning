@@ -9,3 +9,4 @@ from vector_store import VectorStore
 from prompts import RAGPrompts
 from query_classifier import QueryClassifier
 from strategy_selector import StrategySelector
+from rag_system import RAGSystem
