@@ -202,3 +202,9 @@ if __name__ == '__main__':
     vector_store = VectorStore()
     llm = StrategySelector().call_dashscope
     rag_system = RAGSystem(vector_store=vector_store, llm=llm)
+
+    # print(rag_system.generate_answer(query='AI怎么学', source_filter='ai'))  # 测试通用知识
+    # print(rag_system.generate_answer(query='AI课程的项目有哪些', source_filter='ai'))  #测试专业咨询--直接检索
+    # print(rag_system.generate_answer(query='AI课程和Java有什么区别'))  #测试专业咨询--子查询检索
+    # print(rag_system.generate_answer(query='AI课程的落地应用有哪些场景', source_filter='ai'))  #测试专业咨询--HyDE检索
+    print(rag_system.generate_answer(query='AI学科里面，向向量数据库插入100万条数据，可以吗？', source_filter='ai'))  #测试专业咨询--回溯检索
