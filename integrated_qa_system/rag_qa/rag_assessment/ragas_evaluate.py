@@ -35,10 +35,19 @@ eval_data = {
 dataset = Dataset.from_dict(eval_data)
 
 # 3. 配置RAGAS评估环境
-# 初始化ChatOpenAI模型，指定使用gpt-4模型，并设置OpenAI API密钥
-llm = ChatOpenAI(model="gpt-4", openai_api_key="your_openai_api_key")
-# 初始化OpenAI嵌入模型，用于计算语义相似度，设置API密钥
-embeddings = OpenAIEmbeddings(openai_api_key="your_openai_api_key")
+# 初始化ChatOpenAI模型，使用千问模型，通过DashScope的OpenAI兼容接口访问
+# base_url指向DashScope兼容模式地址，api_key使用DashScope密钥
+llm = ChatOpenAI(
+    model=conf.LLM_MODEL,
+    openai_api_key=conf.DASHSCOPE_API_KEY,
+    openai_api_base=conf.DASHSCOPE_BASE_URL,
+)
+# 初始化嵌入模型，用于计算语义相似度，同样走DashScope兼容接口
+embeddings = OpenAIEmbeddings(
+    model=conf.EMBEDDING_MODEL,
+    openai_api_key=conf.DASHSCOPE_API_KEY,
+    openai_api_base=conf.DASHSCOPE_BASE_URL,
+)
 
 # 4. 执行评估
 # 调用evaluate函数，传入数据集、评估指标、LLM模型和嵌入模型
