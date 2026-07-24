@@ -222,12 +222,58 @@ class IntegratedQASystem:
             # 返回空字符串，标记流结束
             yield "", True
 
+def main():
+    # 定义主函数，提供命令行交互界面
+    qa_system = IntegratedQASystem()  # 初始化问答系统
+    # 生成唯一会话 ID
+    session_id = str(uuid.uuid4())
+    # 打印欢迎信息
+    print("\n欢迎使用集成问答系统！")
+    # 打印会话 ID
+    print(f"会话ID: {session_id}")
+    # 打印支持的学科类别
+    print(f"支持的学科类别：{qa_system.config.VALID_SOURCES}")
+    # 提示用户输入查询或退出
+    print("输入查询进行问答，输入 'exit' 退出。")
+    try:
+        while True:
+            # 获取用户输入的查询
+            query = input("\n输入查询: ").strip()
+            if query.lower() == "exit":
+                # 如果用户输入 exit，记录退出日志
+                logger.info("退出系统")
+                # 打印退出信息
+                print("再见！")
+                # 退出循环
+                break
+            # 获取用户输入的学科过滤
+            source_filter = input(f"请输入学科类别 ({'/'.join(qa_system.config.VALID_SOURCES)}) (直接回车默认不过滤): ").strip()
+            if source_filter and source_filter not in qa_system.config.VALID_SOURCES:
+                # 如果学科过滤无效，记录警告日志
+                logger.warning(f"无效的学科类别 '{source_filter}'，将不过滤")
+                # 设置为空，忽略过滤
+                source_filter = None
+            # 打印答案提示
+            print("\n答案: ", end="", flush=True)
+            # 迭代 query 方法的生成器
+            for token, is_complete in qa_system.query(query, source_filter=source_filter, session_id=session_id):
+                if token:
+                    # 仅当 token 非空时打印
+                    print(token, end="", flush=True)
+                if is_complete:
+                    # 如果是完整答案或流结束，换行并退出循环
+                    print()
+                    break
+    except Exception as e:
+        # 记录系统错误日志
+        logger.error(f"系统错误: {e}")
+        # 打印错误信息
+        print(f"发生错误: {e}")
+    finally:
+        # 关闭 MySQL 连接
+        qa_system.mysql_client.close()
 
 
-
-
-
-if __name__ == '__main__':
-    qa_system = IntegratedQASystem()
-    for response, _ in qa_system.query(query='我是谁', session_id='1234567890'):
-        print(response, end='')
+if __name__ == "__main__":
+    # 如果脚本作为主程序运行，调用 main 函数
+    main()
