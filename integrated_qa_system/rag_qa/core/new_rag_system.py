@@ -28,6 +28,8 @@ class RAGSystem:
         self.query_classifier = QueryClassifier()
         #   初始化策略选择器
         self.strategy_selector = StrategySelector()
+        self.call_llm = self.strategy_selector.call_dashscope
+        self.max_length = 256000
 
     #   定义私有方法，使用假设文档进行检索（HyDE）
     def _retrieve_with_hyde(self, query, source_filter=None):
@@ -36,7 +38,7 @@ class RAGSystem:
         hyde_prompt_template = RAGPrompts.hyde_prompt() # 使用 template 后缀区分
         #   调用大语言模型生成假设答案
         try:
-            hypo_answer = self.llm(hyde_prompt_template.format(query=query)).strip()
+            hypo_answer = self.call_llm(hyde_prompt_template.format(query=query)).strip()
             logger.info(f"HyDE 生成的假设答案: '{hypo_answer}'")
             #   使用假设答案进行检索，并返回检索结果
             #   注意：HyDE 通常只用于生成检索向量，不一定需要 rerank 这一步，但这里复用了
@@ -55,7 +57,7 @@ class RAGSystem:
         subquery_prompt_template = RAGPrompts.subquery_prompt() # 使用 template 后缀区分
         try:
             #   调用大语言模型生成子查询列表
-            subqueries_text = self.llm(subquery_prompt_template.format(query=query)).strip()
+            subqueries_text = self.call_llm(subquery_prompt_template.format(query=query)).strip()
             subqueries = [q.strip() for q in subqueries_text.split("\n") if q.strip()]
             logger.info(f"生成的子查询: {subqueries}")
             if not subqueries:
@@ -95,7 +97,7 @@ class RAGSystem:
         backtrack_prompt_template = RAGPrompts.backtracking_prompt() # 使用 template 后缀区分
         try:
             #   调用大语言模型生成回溯问题
-            simplified_query = self.llm(backtrack_prompt_template.format(query=query)).strip()
+            simplified_query = self.call_llm(backtrack_prompt_template.format(query=query)).strip()
             logger.info(f"生成的回溯问题: '{simplified_query}'")
             #   使用回溯问题进行检索，并返回检索结果
             return self.vector_store.hybrid_search_with_rerank(
@@ -174,6 +176,12 @@ class RAGSystem:
 
         prompt_input = self.rag_prompt.format(
             context=context, history=history, question=query, phone=conf.CUSTOMER_SERVICE_PHONE)
+        if len(prompt_input) > self.max_length:
+            logger.warning(f"上下文长度超过限制，已截断 (长度: {len(prompt_input)}, 限制: {self.max_length}, 查询: '{query}')")
+            prompt_input = prompt_input[:self.max_length]
+        logger.info(f'检索时间: {time.time() - start_time:.2f}s')
+
+        start_time = time.time()
         try:
             for answer in self.llm(prompt_input):
                 yield answer
@@ -182,7 +190,7 @@ class RAGSystem:
             yield f"抱歉，处理您的通用知识问题时出错。请联系人工客服：{conf.CUSTOMER_SERVICE_PHONE}"
         finally:
             processing_time = time.time() - start_time
-            logger.info(f"通用知识/专业咨询查询处理完成 (耗时: {processing_time:.2f}s, 查询: '{query}')")
+            logger.info(f"通用知识/专业咨询大模型处理完成 (耗时: {processing_time:.2f}s, 查询: '{query}')")
 
 
 
