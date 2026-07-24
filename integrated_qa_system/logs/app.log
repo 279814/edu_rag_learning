@@ -1166,3 +1166,127 @@ weighted avg       0.99      0.99      0.99       366
 2026-07-24 22:41:26,356 - EduRAG - INFO - 查询处理耗时 29.83秒
 2026-07-24 22:41:44,553 - EduRAG - INFO - 退出系统
 2026-07-24 22:41:44,553 - EduRAG - INFO - MySQL 连接已关闭
+2026-07-25 00:07:52,245 - EduRAG - INFO - MySQL连接成功
+2026-07-25 00:07:52,248 - EduRAG - INFO - Redis 连接成功
+2026-07-25 00:07:59,262 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 00:07:59,720 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 00:08:02,860 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 00:08:03,642 - EduRAG - INFO - 使用cpu设备
+2026-07-25 00:08:03,665 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 00:08:04,564 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 00:09:22,578 - EduRAG - INFO - MySQL连接成功
+2026-07-25 00:09:22,582 - EduRAG - INFO - Redis 连接成功
+2026-07-25 00:09:39,873 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 00:09:40,333 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 00:09:43,369 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 00:09:43,851 - EduRAG - INFO - 使用cpu设备
+2026-07-25 00:09:43,873 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 00:09:44,785 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 00:09:47,872 - EduRAG - INFO - MySQL连接成功
+2026-07-25 00:09:47,875 - EduRAG - INFO - Redis 连接成功
+2026-07-25 00:09:58,752 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 00:09:59,210 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 00:10:01,527 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 00:10:02,011 - EduRAG - INFO - 使用cpu设备
+2026-07-25 00:10:02,036 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 00:10:02,991 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 00:13:55,214 - EduRAG - INFO - MySQL连接成功
+2026-07-25 00:13:55,218 - EduRAG - INFO - Redis 连接成功
+2026-07-25 00:14:09,768 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 00:14:10,219 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 00:14:14,145 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 00:14:14,638 - EduRAG - INFO - 使用cpu设备
+2026-07-25 00:14:14,661 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 00:14:15,581 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 00:14:19,328 - EduRAG - INFO - MySQL连接成功
+2026-07-25 00:14:19,332 - EduRAG - INFO - Redis 连接成功
+2026-07-25 00:14:22,672 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 00:14:23,127 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 00:14:25,303 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 00:14:25,777 - EduRAG - INFO - 使用cpu设备
+2026-07-25 00:14:25,799 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 00:14:26,705 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 00:15:35,034 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: 你是什么模型
+2026-07-25 00:15:35,034 - EduRAG - INFO - 开始预处理文本
+2026-07-25 00:15:35,357 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.219
+2026-07-25 00:15:47,063 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: als;
+2026-07-25 00:15:47,063 - EduRAG - INFO - 开始预处理文本
+2026-07-25 00:15:47,063 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.234
+2026-07-25 00:17:08,922 - EduRAG - INFO - 会话 7789cf42-f946-464a-89f8-8271c9578a45 历史已清除
+2026-07-25 00:18:02,888 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: 你会什么
+2026-07-25 00:18:02,888 - EduRAG - INFO - 开始预处理文本
+2026-07-25 00:18:02,889 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.068
+2026-07-25 00:20:28,083 - EduRAG - INFO - MySQL连接成功
+2026-07-25 00:20:28,086 - EduRAG - INFO - Redis 连接成功
+2026-07-25 00:20:32,318 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 00:20:32,781 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 00:20:36,775 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 00:20:38,049 - EduRAG - INFO - 使用cpu设备
+2026-07-25 00:20:38,071 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 00:20:39,455 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 00:20:41,528 - EduRAG - INFO - MySQL连接成功
+2026-07-25 00:20:41,531 - EduRAG - INFO - Redis 连接成功
+2026-07-25 00:20:48,469 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 00:20:48,909 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 00:20:51,157 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 00:20:51,643 - EduRAG - INFO - 使用cpu设备
+2026-07-25 00:20:51,668 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 00:20:52,606 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 00:21:06,576 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: 你会什么
+2026-07-25 00:21:06,576 - EduRAG - INFO - 开始预处理文本
+2026-07-25 00:21:07,118 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.068
+2026-07-25 00:21:07,131 - EduRAG - INFO - 处理查询: '你会什么' (会话ID: 63f1f51a-6b8e-491e-9cb3-7b588f004dc5)
+2026-07-25 00:21:08,052 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: 你会什么
+2026-07-25 00:21:08,052 - EduRAG - INFO - 开始预处理文本
+2026-07-25 00:21:08,053 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.068
+2026-07-25 00:21:08,053 - EduRAG - INFO - 无可靠MySQL答案，回退到RAG
+2026-07-25 00:21:08,053 - EduRAG - INFO - 开始处理查询: '你会什么', 学科过滤: ai
+2026-07-25 00:21:08,386 - EduRAG - INFO - 查询分类结果：通用知识 (查询: '你会什么')
+2026-07-25 00:21:08,386 - EduRAG - INFO - 查询为通用知识，直接调用 LLM
+2026-07-25 00:21:08,387 - EduRAG - INFO - 检索时间: 0.33s
+2026-07-25 00:21:20,649 - EduRAG - INFO - 通用知识/专业咨询大模型处理完成 (耗时: 12.26s, 查询: '你会什么')
+2026-07-25 00:21:21,634 - EduRAG - INFO - 会话 63f1f51a-6b8e-491e-9cb3-7b588f004dc5 历史更新成功
+2026-07-25 00:21:21,634 - EduRAG - INFO - 查询处理耗时 14.50秒
+2026-07-25 00:21:49,935 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: AI班级的课程大纲
+2026-07-25 00:21:49,935 - EduRAG - INFO - 开始预处理文本
+2026-07-25 00:21:50,183 - EduRAG - INFO - mysql成功获取answer
+2026-07-25 00:21:50,411 - EduRAG - INFO - 存储数据到 Redis: answer:解锁后面的课程
+如何解锁后面的课程
+解锁后面的学科
+2026-07-25 00:21:50,411 - EduRAG - INFO - 搜索成功，Softmax 相似度: 0.860
+2026-07-25 00:22:18,441 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: 我是小明，AI班级的学习流程，大纲
+2026-07-25 00:22:18,441 - EduRAG - INFO - 开始预处理文本
+2026-07-25 00:22:18,442 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.324
+2026-07-25 00:22:18,446 - EduRAG - INFO - 处理查询: '我是小明，AI班级的学习流程，大纲' (会话ID: 63f1f51a-6b8e-491e-9cb3-7b588f004dc5)
+2026-07-25 00:22:18,896 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: 我是小明，AI班级的学习流程，大纲
+2026-07-25 00:22:18,896 - EduRAG - INFO - 开始预处理文本
+2026-07-25 00:22:18,897 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.324
+2026-07-25 00:22:18,897 - EduRAG - INFO - 无可靠MySQL答案，回退到RAG
+2026-07-25 00:22:18,897 - EduRAG - INFO - 开始处理查询: '我是小明，AI班级的学习流程，大纲', 学科过滤: ai
+2026-07-25 00:22:19,222 - EduRAG - INFO - 查询分类结果：专业咨询 (查询: '我是小明，AI班级的学习流程，大纲')
+2026-07-25 00:22:19,222 - EduRAG - INFO - 查询为专业咨询，执行 RAG 流程
+2026-07-25 00:22:25,168 - EduRAG - INFO - 为查询 '我是小明，AI班级的学习流程，大纲' 选择的检索策略：直接检索
+2026-07-25 00:22:25,169 - EduRAG - INFO - 使用直接检索策略 (查询: '我是小明，AI班级的学习流程，大纲')
+2026-07-25 00:22:29,254 - EduRAG - INFO - 策略 '直接检索' 检索到 2 个候选文档 (可能已是父文档)
+2026-07-25 00:22:29,254 - EduRAG - INFO - 最终选取 2 个文档作为上下文
+2026-07-25 00:22:29,254 - EduRAG - INFO - 构建上下文完成，包含 2 个文档块
+2026-07-25 00:22:29,255 - EduRAG - INFO - 检索时间: 10.36s
+2026-07-25 00:23:03,781 - EduRAG - INFO - 通用知识/专业咨询大模型处理完成 (耗时: 34.53s, 查询: '我是小明，AI班级的学习流程，大纲')
+2026-07-25 00:23:05,482 - EduRAG - INFO - 会话 63f1f51a-6b8e-491e-9cb3-7b588f004dc5 历史更新成功
+2026-07-25 00:23:05,482 - EduRAG - INFO - 查询处理耗时 47.04秒
+2026-07-25 00:23:25,479 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: 我是谁
+2026-07-25 00:23:25,479 - EduRAG - INFO - 开始预处理文本
+2026-07-25 00:23:25,479 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.395
+2026-07-25 00:23:25,483 - EduRAG - INFO - 处理查询: '我是谁' (会话ID: 63f1f51a-6b8e-491e-9cb3-7b588f004dc5)
+2026-07-25 00:23:26,204 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: 我是谁
+2026-07-25 00:23:26,204 - EduRAG - INFO - 开始预处理文本
+2026-07-25 00:23:26,204 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.395
+2026-07-25 00:23:26,204 - EduRAG - INFO - 无可靠MySQL答案，回退到RAG
+2026-07-25 00:23:26,204 - EduRAG - INFO - 开始处理查询: '我是谁', 学科过滤: ai
+2026-07-25 00:23:26,449 - EduRAG - INFO - 查询分类结果：通用知识 (查询: '我是谁')
+2026-07-25 00:23:26,449 - EduRAG - INFO - 查询为通用知识，直接调用 LLM
+2026-07-25 00:23:26,449 - EduRAG - INFO - 检索时间: 0.24s
+2026-07-25 00:23:36,324 - EduRAG - INFO - 通用知识/专业咨询大模型处理完成 (耗时: 9.87s, 查询: '我是谁')
+2026-07-25 00:23:38,793 - EduRAG - INFO - 会话 63f1f51a-6b8e-491e-9cb3-7b588f004dc5 历史更新成功
+2026-07-25 00:23:38,793 - EduRAG - INFO - 查询处理耗时 13.31秒
+2026-07-25 00:24:54,395 - EduRAG - INFO - 会话 63f1f51a-6b8e-491e-9cb3-7b588f004dc5 历史已清除
