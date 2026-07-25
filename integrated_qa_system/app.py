@@ -74,7 +74,9 @@ app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 # 根路径重定向到index.html
 @app.get("/")
 async def read_root():
-    return FileResponse(os.path.join(STATIC_DIR, "index.html"))
+    # no-cache：浏览器每次使用缓存前须凭 ETag 向服务器验证，文件未变返回 304，避免改版后浏览器仍显示旧页面
+    return FileResponse(os.path.join(STATIC_DIR, "index.html"),
+                        headers={"Cache-Control": "no-cache"})
 
 # 创建新会话
 @app.post("/api/create_session")
