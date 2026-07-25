@@ -1127,7 +1127,7 @@
             `;
         }
 
-        // 发送消息
+        // 发送消息（单通道：统一走 WebSocket，问候/BM25/RAG 由后端一次处理，避免重复检索）
         async function sendMessage() {
             const query = chatInput.value.trim();
             const filter = sourceFilter.value;
@@ -1153,50 +1153,29 @@
             // 滚动到底部
             scrollToBottom();
 
-            try {
-                // 发送查询请求
-                const response = await fetch(`${API_BASE_URL}/api/query`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        query: query,
-                        source_filter: filter,
-                        session_id: currentSessionId
-                    })
-                });
+            // 创建系统消息容器（收到首个 token 时才挂载，替换输入指示器）
+            const messageElement = document.createElement('div');
+            messageElement.className = 'message system-message';
 
-                if (!response.ok) {
-                    throw new Error('查询失败');
-                }
+            const contentElement = document.createElement('div');
+            contentElement.className = 'message-content';
+            contentElement.innerHTML = ''; // 初始化为空
 
-                const data = await response.json();
+            messageElement.appendChild(contentElement);
 
-                // 移除输入指示器
+            // 首个 token 到达时：移除输入指示器、挂载消息容器
+            const showAnswerContainer = () => {
                 if (typingIndicator.parentNode) {
                     chatHistory.removeChild(typingIndicator);
                 }
-
-                // 如果需要流式输出，使用 WebSocket
-                if (data.is_streaming) {
-                    // 创建系统消息容器，但内容为空
-                    const messageElement = document.createElement('div');
-                    messageElement.className = 'message system-message';
-
-                    const contentElement = document.createElement('div');
-                    contentElement.className = 'message-content';
-                    contentElement.innerHTML = ''; // 初始化为空
-
-                    messageElement.appendChild(contentElement);
+                if (!messageElement.parentNode) {
                     chatHistory.appendChild(messageElement);
-
-                    // 建立 WebSocket 连接进行流式输出
-                    await handleStreamingResponse(query, filter, contentElement);
-                } else {
-                    // 直接添加格式化后的答案
-                    addMessage('system', data.answer);
                 }
+            };
+
+            try {
+                // 建立 WebSocket 连接进行流式输出
+                await handleStreamingResponse(query, filter, contentElement, showAnswerContainer);
 
                 // 重新加载历史记录
                 await loadHistory();
@@ -1212,6 +1191,11 @@
                 // 添加错误消息
                 addMessage('system', `抱歉，发生错误: ${error.message}`);
             } finally {
+                // 兜底：确保输入指示器被移除（如空回答时不会触发首 token 回调）
+                if (typingIndicator.parentNode) {
+                    chatHistory.removeChild(typingIndicator);
+                }
+
                 // 清除正在响应标志
                 isResponseInProgress = false;
 
@@ -1221,7 +1205,7 @@
         }
 
         // 处理流式响应
-        async function handleStreamingResponse(query, filter, contentElement) {
+        async function handleStreamingResponse(query, filter, contentElement, onFirstToken) {
             // 关闭现有连接
             if (socket && socket.readyState === WebSocket.OPEN) {
                 socket.close();
@@ -1259,6 +1243,8 @@
                             break;
 
                         case 'token':
+                            // 首个 token 到达时挂载消息容器
+                            if (onFirstToken) onFirstToken();
                             // 追加 token 到内容
                             accumulatedContent += data.token;
                             // 使用 marked.js 解析 Markdown 格式
@@ -1274,6 +1260,7 @@
 
                         case 'error':
                             console.error('流式响应错误:', data.error);
+                            if (onFirstToken) onFirstToken();
                             contentElement.innerHTML += `<p>[错误: ${data.error}]</p>`;
                             socket.close();
                             reject(new Error(data.error));
@@ -1284,6 +1271,7 @@
                 // 发生错误时
                 socket.onerror = function(error) {
                     console.error('WebSocket 错误:', error);
+                    if (onFirstToken) onFirstToken();
                     contentElement.innerHTML += '<p>[连接错误]</p>';
                     reject(error);
                 };

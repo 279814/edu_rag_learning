@@ -171,8 +171,8 @@ class QueryClassifier:
             logger.error("模型未训练或加载")
             # 默认返回通用知识
             return "通用知识"
-        # 对查询进行编码
-        encoding = self.tokenizer(query, truncation=True, padding='max_length', max_length=500, return_tensors="pt")
+        # 对查询进行编码（max_length 与训练时保持一致，均为 128，避免训推分布不一致）
+        encoding = self.tokenizer(query, truncation=True, padding='max_length', max_length=128, return_tensors="pt")
         # 将编码移到指定设备
         encoding = {k: v.to(self.device) for k, v in encoding.items()}
         self.model.eval()

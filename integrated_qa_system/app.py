@@ -27,8 +27,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 创建静态文件目录
-os.makedirs(os.path.join(os.path.dirname(os.path.abspath(__file__)), "static"), exist_ok=True)
+# 项目根目录与静态文件目录（统一使用绝对路径，避免工作目录不同导致挂载失败）
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+os.makedirs(STATIC_DIR, exist_ok=True)
 
 # 创建全局QA系统实例
 qa_system = IntegratedQASystem()
@@ -66,13 +68,13 @@ class QueryResponse(BaseModel):
     session_id: str
     processing_time: float
 
-# 添加静态文件服务
-app.mount("/static", StaticFiles(directory="static"), name="static")
+# 添加静态文件服务（绝对路径，与根路径响应保持一致）
+app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 # 根路径重定向到index.html
 @app.get("/")
 async def read_root():
-    return FileResponse(os.path.join(os.path.dirname(os.path.abspath(__file__)), "static", "index.html"))
+    return FileResponse(os.path.join(STATIC_DIR, "index.html"))
 
 # 创建新会话
 @app.post("/api/create_session")
@@ -108,7 +110,15 @@ def check_greeting(query: str) -> Optional[str]:
     return None
 
 
-# 非流式查询接口
+# 将一轮问答写入会话历史；失败仅记录日志，不影响本次应答
+def record_history(session_id: str, question: str, answer: str):
+    try:
+        qa_system.update_session_history(session_id, question, answer)
+    except Exception as e:
+        qa_system.logger.error(f"记录会话历史失败 (会话: {session_id}): {e}")
+
+
+# 非流式查询接口（兼容用途；前端已统一走 WebSocket 单通道）
 @app.post("/api/query")
 async def query(request: QueryRequest):
     start_time = time.time()  # 记录开始时间
@@ -117,6 +127,8 @@ async def query(request: QueryRequest):
     # 检查是否为日常问候
     greeting_response = check_greeting(request.query)
     if greeting_response:
+        # 问候轮次同样写入会话历史
+        record_history(session_id, request.query, greeting_response)
         # 返回问候回复
         return {
             "answer": greeting_response,
@@ -134,6 +146,8 @@ async def query(request: QueryRequest):
             "session_id": session_id,
             "processing_time": time.time() - start_time
         }
+    # BM25 命中的轮次写入会话历史
+    record_history(session_id, request.query, answer)
     # 返回 MySQL 答案
     return {
         "answer": answer,
@@ -165,6 +179,8 @@ async def websocket_endpoint(websocket: WebSocket):
             # 检查是否为日常问候
             greeting_response = check_greeting(query)
             if greeting_response:
+                # 问候轮次同样写入会话历史（先落库，再发结束帧，避免前端刷新历史时读不到）
+                record_history(session_id, query, greeting_response)
                 if websocket.client_state == websocket.client_state.CONNECTED:
                     # 发送问候回复
                     await websocket.send_json({
@@ -179,7 +195,8 @@ async def websocket_endpoint(websocket: WebSocket):
                         "is_complete": True,
                         "processing_time": time.time() - start_time
                     })
-                break
+                # 保持连接，等待下一条消息（与正常问答路径行为一致）
+                continue
             # 调用问答系统，流式处理查询
             collected_answer = ""
             for token, is_complete in qa_system.query(query, source_filter=source_filter, session_id=session_id):

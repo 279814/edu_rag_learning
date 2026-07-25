@@ -20,6 +20,8 @@ class Config():
         self.REDIS_PORT = self.config.get('redis', 'port', fallback='6379')
         self.REDIS_PASSWORD = self.config.get('redis', 'password', fallback='password')
         self.REDIS_DB = self.config.get('redis', 'db', fallback='0')
+        # 缓存过期时间（秒），用于 BM25 问题列表与答案缓存，保证 MySQL 新增数据可被感知
+        self.REDIS_CACHE_TTL = self.config.getint('redis', 'cache_ttl', fallback=3600)
 
         self.LOG_FILE = self.config.get('logger', 'log_file', fallback='log.txt')
 

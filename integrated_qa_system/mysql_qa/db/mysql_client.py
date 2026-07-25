@@ -57,9 +57,18 @@ class MySQLClient():
             raise
 
 
+    def ensure_connection(self):
+        """检查连接存活，断线自动重连（远程 MySQL 空闲超时后会被服务端断开，导致 2013/(0,'') 错误）"""
+        try:
+            self.connection.ping(reconnect=True)
+        except pymysql.MySQLError as e:
+            self.logger.error(f"MySQL 重连失败: {e}")
+            raise
+
     def fetch_questions(self):
         # 获取所有问题
         try:
+            self.ensure_connection()
             # 执行查询
             self.cursor.execute("SELECT question FROM jpkb")
             # 获取结果
@@ -77,6 +86,7 @@ class MySQLClient():
 
     def fetch_answer(self, question):
         try:
+            self.ensure_connection()
             self.cursor.execute("SELECT answer FROM jpkb WHERE question = %s", (question,))
             result = self.cursor.fetchone()
             self.logger.info("mysql成功获取answer")

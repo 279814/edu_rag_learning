@@ -91,12 +91,14 @@ class IntegratedQASystem:
     def _fetch_recent_history(self, session_id: str) -> list:
         """获取最近5轮对话历史"""
         try:
-            # 执行 SQL 查询，获取最近 5 轮对话
+            # 确保连接存活（远程 MySQL 空闲超时后自动重连）
+            self.mysql_client.ensure_connection()
+            # 执行 SQL 查询，获取最近 5 轮对话（按自增 id 排序，避免同秒 timestamp 乱序）
             self.mysql_client.cursor.execute("""
                 SELECT question, answer
                 FROM conversations
                 WHERE session_id = %s
-                ORDER BY timestamp DESC
+                ORDER BY id DESC
                 LIMIT %s
             """, (session_id, 5))
             # 将查询结果转换为字典列表
@@ -112,6 +114,8 @@ class IntegratedQASystem:
     def update_session_history(self, session_id: str, question: str, answer: str) -> list:
         """更新会话历史到MySQL，保留最近5轮对话"""
         try:
+            # 确保连接存活（远程 MySQL 空闲超时后自动重连）
+            self.mysql_client.ensure_connection()
             # 插入新的对话记录
             self.mysql_client.cursor.execute("""
                 INSERT INTO conversations (session_id, question, answer, timestamp)
@@ -119,7 +123,7 @@ class IntegratedQASystem:
             """, (session_id, question, answer))
             # 获取更新后的对话历史
             history = self._fetch_recent_history(session_id)
-            # 删除超出 5 轮的旧记录
+            # 删除超出 5 轮的旧记录（按自增 id 排序，与查询逻辑一致）
             self.mysql_client.cursor.execute("""
                 DELETE FROM conversations
                 WHERE session_id = %s AND id NOT IN (
@@ -127,7 +131,7 @@ class IntegratedQASystem:
                         SELECT id
                         FROM conversations
                         WHERE session_id = %s
-                        ORDER BY timestamp DESC
+                        ORDER BY id DESC
                         LIMIT %s
                     ) AS sub
                 )
@@ -161,6 +165,8 @@ class IntegratedQASystem:
     def clear_session_history(self, session_id: str) -> bool:
         """清除指定会话历史"""
         try:
+            # 确保连接存活（远程 MySQL 空闲超时后自动重连）
+            self.mysql_client.ensure_connection()
             # 删除指定 session_id 的所有对话记录
             self.mysql_client.cursor.execute("""
                 DELETE FROM conversations

@@ -177,8 +177,14 @@ class RAGSystem:
         prompt_input = self.rag_prompt.format(
             context=context, history=history, question=query, phone=conf.CUSTOMER_SERVICE_PHONE)
         if len(prompt_input) > self.max_length:
-            logger.warning(f"上下文长度超过限制，已截断 (长度: {len(prompt_input)}, 限制: {self.max_length}, 查询: '{query}')")
-            prompt_input = prompt_input[:self.max_length]
+            # 超长时优先压缩 context，保住问题与对话历史（原实现从尾部截断会把问题本身截掉）
+            overhead = len(prompt_input) - len(context)
+            context_budget = max(self.max_length - overhead, 0)
+            logger.warning(f"Prompt 长度 {len(prompt_input)} 超过限制 {self.max_length}，"
+                           f"context 由 {len(context)} 截断至 {context_budget} (查询: '{query}')")
+            context = context[:context_budget]
+            prompt_input = self.rag_prompt.format(
+                context=context, history=history, question=query, phone=conf.CUSTOMER_SERVICE_PHONE)
         logger.info(f'检索时间: {time.time() - start_time:.2f}s')
 
         start_time = time.time()

@@ -22,3 +22,4 @@ integrated_qa_system/rag_qa/samples/
 #微调模型/模型数据
 integrated_qa_system/rag_qa/bert_query_classifier/
 integrated_qa_system/rag_qa/bert_results/
+.playwright-mcp/

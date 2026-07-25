@@ -8,7 +8,7 @@ sys.path.insert(0, model_path)
 project_root = os.path.dirname(model_path)
 sys.path.insert(0, project_root)
 
-from base import logger
+from base import logger, Config
 from cache import RedisClient
 from db import MySQLClient
 from utils import preprocess_text
@@ -21,6 +21,8 @@ class BM25Search:
         self.redis_client = redis_client
         # 初始化 MySQL 客户端
         self.mysql_client = mysql_client
+        # 缓存过期时间（秒），到期后重新从 MySQL 加载，保证新增 QA 可被检索
+        self.cache_ttl = Config().REDIS_CACHE_TTL
         # 初始化 BM25 模型
         self.bm25 = None
         # 初始化问题列表
@@ -43,9 +45,9 @@ class BM25Search:
                 self.logger.error("从MySQL加载数据失败")
                 return
             tokenized_questions = [preprocess_text(q[0]) for q in self.original_questions]
-            # 缓存数据
-            self.redis_client.set_data(original_key, [(q[0]) for q in self.original_questions])
-            self.redis_client.set_data(tokenized_key, tokenized_questions)
+            # 缓存数据（带过期时间，到期后自动失效以感知 MySQL 新增数据）
+            self.redis_client.set_data(original_key, [(q[0]) for q in self.original_questions], expire=self.cache_ttl)
+            self.redis_client.set_data(tokenized_key, tokenized_questions, expire=self.cache_ttl)
             self.original_questions = [(q[0]) for q in self.original_questions]
 
 
@@ -84,11 +86,11 @@ class BM25Search:
                 original_question = self.original_questions[best_idx]
                 answer = self.mysql_client.fetch_answer(original_question)
                 if answer:
-                    # 缓存答案
-                    self.redis_client.set_data(f"answer:{original_question}", answer)
+                    # 以「用户查询」为键缓存答案（与 get_answer 的读取键一致，模糊匹配也能命中缓存）
+                    self.redis_client.set_data(f"answer:{query}", answer, expire=self.cache_ttl)
                     # 记录搜索成功
                     self.logger.info(f"搜索成功，Softmax 相似度: {best_score:.3f}")
-                    # 返回答案和 False
+                    # 返回答案
                     return answer
 
             self.logger.info(f"未找到可靠答案，最高 Softmax 相似度: {best_score:.3f}")
