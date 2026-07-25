@@ -2639,3 +2639,31 @@ requirepass 123
 2026-07-25 13:55:32,488 - EduRAG - INFO - 通用知识/专业咨询大模型处理完成 (耗时: 30.13s, 查询: '你好，我咨询：AI课程和Java有什么区别')
 2026-07-25 13:55:33,891 - EduRAG - INFO - 会话 a7a3e4ec-e30d-40c8-a3fe-48efcd6cbb6c 历史更新成功
 2026-07-25 13:55:33,891 - EduRAG - INFO - 查询处理耗时 56.00秒
+2026-07-25 14:30:59,343 - EduRAG - INFO - MySQL连接成功
+2026-07-25 14:30:59,348 - EduRAG - INFO - Redis 连接成功
+2026-07-25 14:31:03,733 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 14:31:06,759 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 14:31:11,754 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 14:31:13,105 - EduRAG - INFO - 使用cpu设备
+2026-07-25 14:31:13,135 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 14:31:16,702 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 14:31:18,637 - EduRAG - INFO - MySQL连接成功
+2026-07-25 14:31:18,642 - EduRAG - INFO - Redis 连接成功
+2026-07-25 14:31:21,238 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 14:31:23,501 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 14:31:25,810 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 14:31:26,300 - EduRAG - INFO - 使用cpu设备
+2026-07-25 14:31:26,356 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 14:31:31,164 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 14:32:02,541 - EduRAG - INFO - 处理查询: '你是什么模型，具体一点' (会话ID: 37978ed8-40f3-40b8-bc8b-85fd647d558e)
+2026-07-25 14:32:03,236 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: 你是什么模型，具体一点
+2026-07-25 14:32:03,236 - EduRAG - INFO - 开始预处理文本
+2026-07-25 14:32:03,748 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.185
+2026-07-25 14:32:03,748 - EduRAG - INFO - 无可靠MySQL答案，回退到RAG
+2026-07-25 14:32:03,749 - EduRAG - INFO - 开始处理查询: '你是什么模型，具体一点', 学科过滤: 
+2026-07-25 14:32:03,883 - EduRAG - INFO - 查询分类结果：通用知识 (查询: '你是什么模型，具体一点')
+2026-07-25 14:32:03,884 - EduRAG - INFO - 查询为通用知识，直接调用 LLM
+2026-07-25 14:32:03,884 - EduRAG - INFO - 检索时间: 0.14s
+2026-07-25 14:32:09,190 - EduRAG - INFO - 通用知识/专业咨询大模型处理完成 (耗时: 5.31s, 查询: '你是什么模型，具体一点')
+2026-07-25 14:32:11,072 - EduRAG - INFO - 会话 37978ed8-40f3-40b8-bc8b-85fd647d558e 历史更新成功
+2026-07-25 14:32:11,072 - EduRAG - INFO - 查询处理耗时 8.53秒
