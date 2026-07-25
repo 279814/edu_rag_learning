@@ -29,7 +29,8 @@ class RAGSystem:
         #   初始化策略选择器
         self.strategy_selector = StrategySelector()
         self.call_llm = self.strategy_selector.call_dashscope
-        self.max_length = 256000
+        # Prompt 最大字符数取自 config.ini，超出时优先截断检索上下文
+        self.max_length = conf.MAX_PROMPT_LENGTH
 
     #   定义私有方法，使用假设文档进行检索（HyDE）
     def _retrieve_with_hyde(self, query, source_filter=None):

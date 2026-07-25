@@ -50,6 +50,8 @@ class Config():
         # DashScope API 地址
         self.DASHSCOPE_BASE_URL = self.config.get('llm', 'dashscope_base_url',
                                                   fallback='https://dashscope.aliyuncs.com/compatible-mode/v1')
+        # 送入 LLM 的 Prompt 最大字符数，超出时优先截断检索上下文
+        self.MAX_PROMPT_LENGTH = self.config.getint('llm', 'max_prompt_length', fallback=256000)
 
         # 检索参数
         # 父块大小
@@ -62,6 +64,8 @@ class Config():
         self.RETRIEVAL_K = self.config.getint('retrieval', 'retrieval_k', fallback=5)
         # 最终候选数量
         self.CANDIDATE_M = self.config.getint('retrieval', 'candidate_m', fallback=2)
+        # BM25 softmax 相似度阈值，达到则直接使用 MySQL 标准答案
+        self.BM25_THRESHOLD = self.config.getfloat('retrieval', 'bm25_threshold', fallback=0.85)
 
         #应用配置
         self.CUSTOMER_SERVICE_PHONE = self.config.get('app', 'customer_service_phone')

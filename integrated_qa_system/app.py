@@ -38,19 +38,19 @@ qa_system = IntegratedQASystem()
 # 定义日常问候用语模式和回复
 GREETING_PATTERNS = [
     {
-        "pattern": r"^(你好|您好|hi|hello)",
+        "pattern": r"^(你好|您好|hi|hello)$",
         "response": "你好！我是RAG智慧问答系统，很高兴为你服务！"
     },
     {
-        "pattern": r"^(你是谁|您是谁|你叫什么|你的名字|who are you)",
+        "pattern": r"^(你是谁|您是谁|你叫什么|你的名字|who are you)$",
         "response": "我是RAG智慧问答系统，你的智能学习助手，致力于提供 IT 教育相关的解答！"
     },
     {
-        "pattern": r"^(在吗|在不在|有人吗)",
+        "pattern": r"^(在吗|在不在|有人吗)$",
         "response": "我在！我是RAG智慧问答系统，随时为你解答问题！"
     },
     {
-        "pattern": r"^(干嘛呢|你在干嘛|做什么)",
+        "pattern": r"^(干嘛呢|你在干嘛|做什么)$",
         "response": "我正在待命，随时为你解答 IT 学习相关的问题！有什么我可以帮你的？"
     }
 ]
@@ -138,8 +138,8 @@ async def query(request: QueryRequest):
             "session_id": session_id,
             "processing_time": time.time() - start_time
         }
-    # 执行 BM25 搜索
-    answer = qa_system.bm25_search.search(request.query, threshold=0.85)
+    # 执行 BM25 搜索（阈值取自 config.ini）
+    answer = qa_system.bm25_search.search(request.query, threshold=qa_system.config.BM25_THRESHOLD)
     if not answer:
         # 需要 RAG，提示使用 WebSocket
         return {

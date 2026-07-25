@@ -197,11 +197,11 @@ class VectorStore:
 
         # 将搜索结果转换为 Document 对象列表
         sub_chunks = [self._doc_from_hit(hit["entity"]) for hit in results]
-        print(f'sub_chunks-->{len(sub_chunks)}')
+        self.logger.info(f"混合检索得到 {len(sub_chunks)} 个子块")
         # 从子块中提取去重的父文档
         parent_docs = self._get_unique_parent_docs(sub_chunks)
-        # 如果只有1个文档，直接返回跳过重排序
-        if len(parent_docs) <= 2:
+        # 仅剩 0/1 个文档时无需重排序（≥2 个即交给 reranker 排序，选取数量由 CANDIDATE_M 决定）
+        if len(parent_docs) <= 1:
             return parent_docs
             # 如果有父文档，进行重排序
         if parent_docs:
