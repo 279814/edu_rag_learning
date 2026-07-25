@@ -1404,3 +1404,91 @@ weighted avg       0.99      0.99      0.99       366
 2026-07-25 10:46:58,696 - EduRAG - INFO - 通用知识/专业咨询大模型处理完成 (耗时: 23.11s, 查询: '吉安卡罗书法家')
 2026-07-25 10:46:59,600 - EduRAG - INFO - 会话 f375cec3-417b-4c99-b9aa-cffbf2f3e640 历史更新成功
 2026-07-25 10:46:59,600 - EduRAG - INFO - 查询处理耗时 24.73秒
+2026-07-25 11:05:09,912 - EduRAG - INFO - MySQL连接成功
+2026-07-25 11:05:09,919 - EduRAG - INFO - Redis 连接成功
+2026-07-25 11:05:15,779 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 11:05:18,803 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 11:05:23,683 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 11:05:24,145 - EduRAG - INFO - 使用cpu设备
+2026-07-25 11:05:24,174 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 11:05:27,990 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 11:05:29,840 - EduRAG - INFO - MySQL连接成功
+2026-07-25 11:05:29,846 - EduRAG - INFO - Redis 连接成功
+2026-07-25 11:05:34,809 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 11:05:38,117 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 11:05:42,387 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 11:05:42,861 - EduRAG - INFO - 使用cpu设备
+2026-07-25 11:05:42,919 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 11:05:46,569 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 11:07:31,282 - EduRAG - ERROR - 更新会话历史失败: (2013, 'Lost connection to MySQL server during query')
+2026-07-25 11:07:31,282 - EduRAG - ERROR - 记录会话历史失败 (会话: 21008070-af0c-43c6-bf09-1bac16708c40): (0, '')
+2026-07-25 11:07:31,288 - EduRAG - ERROR - 获取对话历史失败: (0, '')
+2026-07-25 11:12:07,624 - EduRAG - INFO - MySQL连接成功
+2026-07-25 11:12:07,629 - EduRAG - INFO - Redis 连接成功
+2026-07-25 11:12:09,822 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 11:12:13,035 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 11:12:18,081 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 11:12:18,558 - EduRAG - INFO - 使用cpu设备
+2026-07-25 11:12:18,586 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 11:12:24,142 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 11:12:25,970 - EduRAG - INFO - MySQL连接成功
+2026-07-25 11:12:25,975 - EduRAG - INFO - Redis 连接成功
+2026-07-25 11:12:28,215 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 11:12:31,303 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 11:12:36,210 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 11:12:36,980 - EduRAG - INFO - 使用cpu设备
+2026-07-25 11:12:37,037 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 11:12:40,585 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 11:13:41,490 - EduRAG - INFO - 会话 9449c2b7-9499-441a-8fac-0d56529f2171 历史更新成功
+2026-07-25 11:14:55,303 - EduRAG - INFO - 处理查询: 'redis 设置密码访问' (会话ID: 9449c2b7-9499-441a-8fac-0d56529f2171)
+2026-07-25 11:14:55,951 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: redis 设置密码访问
+2026-07-25 11:14:55,951 - EduRAG - INFO - 开始预处理文本
+2026-07-25 11:14:57,030 - EduRAG - INFO - mysql成功获取answer
+2026-07-25 11:14:57,242 - EduRAG - INFO - 存储数据到 Redis: answer:redis 设置密码访问 (过期: 3600)
+2026-07-25 11:14:57,242 - EduRAG - INFO - 搜索成功，Softmax 相似度: 1.000
+2026-07-25 11:14:57,242 - EduRAG - INFO - MySQL答案: 
+找到配置文件/etc/redis/redis.conf，添加：
+requirepass 123
+
+把访问密码 设置成123.
+
+
+连接到redis中，执行：keys * 命令，发现 不能访问数据库了。
+
+然后执行 ：auth 123 ,又可以访问了哈哈。
+2026-07-25 11:14:58,555 - EduRAG - INFO - 会话 9449c2b7-9499-441a-8fac-0d56529f2171 历史更新成功
+2026-07-25 11:14:58,555 - EduRAG - INFO - 查询处理耗时 3.25秒
+2026-07-25 11:16:57,422 - EduRAG - INFO - 处理查询: 'AI课程的项目有哪些？' (会话ID: 9449c2b7-9499-441a-8fac-0d56529f2171)
+2026-07-25 11:16:58,082 - EduRAG - INFO - bm25搜索 没有在缓存中 获取答案: AI课程的项目有哪些？
+2026-07-25 11:16:58,083 - EduRAG - INFO - 开始预处理文本
+2026-07-25 11:16:58,083 - EduRAG - INFO - 未找到可靠答案，最高 Softmax 相似度: 0.646
+2026-07-25 11:16:58,083 - EduRAG - INFO - 无可靠MySQL答案，回退到RAG
+2026-07-25 11:16:58,083 - EduRAG - INFO - 开始处理查询: 'AI课程的项目有哪些？', 学科过滤: 
+2026-07-25 11:16:58,220 - EduRAG - INFO - 查询分类结果：专业咨询 (查询: 'AI课程的项目有哪些？')
+2026-07-25 11:16:58,220 - EduRAG - INFO - 查询为专业咨询，执行 RAG 流程
+2026-07-25 11:17:02,965 - EduRAG - INFO - 为查询 'AI课程的项目有哪些？' 选择的检索策略：直接检索
+2026-07-25 11:17:02,965 - EduRAG - INFO - 使用直接检索策略 (查询: 'AI课程的项目有哪些？')
+2026-07-25 11:17:07,562 - EduRAG - INFO - 策略 '直接检索' 检索到 2 个候选文档 (可能已是父文档)
+2026-07-25 11:17:07,562 - EduRAG - INFO - 最终选取 2 个文档作为上下文
+2026-07-25 11:17:07,562 - EduRAG - INFO - 构建上下文完成，包含 2 个文档块
+2026-07-25 11:17:07,563 - EduRAG - INFO - 检索时间: 9.48s
+2026-07-25 11:17:26,238 - EduRAG - INFO - 通用知识/专业咨询大模型处理完成 (耗时: 18.68s, 查询: 'AI课程的项目有哪些？')
+2026-07-25 11:17:27,572 - EduRAG - INFO - 会话 9449c2b7-9499-441a-8fac-0d56529f2171 历史更新成功
+2026-07-25 11:17:27,572 - EduRAG - INFO - 查询处理耗时 30.15秒
+2026-07-25 11:19:27,648 - EduRAG - INFO - 处理查询: 'redis 设置密码访问' (会话ID: 9449c2b7-9499-441a-8fac-0d56529f2171)
+2026-07-25 11:19:28,338 - EduRAG - INFO - 从 Redis 获取答案: redis 设置密码访问
+2026-07-25 11:19:28,339 - EduRAG - INFO - bm25搜索 从缓存中 获取答案: redis 设置密码访问
+2026-07-25 11:19:28,339 - EduRAG - INFO - MySQL答案: 
+找到配置文件/etc/redis/redis.conf，添加：
+requirepass 123
+
+把访问密码 设置成123.
+
+
+连接到redis中，执行：keys * 命令，发现 不能访问数据库了。
+
+然后执行 ：auth 123 ,又可以访问了哈哈。
+2026-07-25 11:19:29,643 - EduRAG - INFO - 会话 9449c2b7-9499-441a-8fac-0d56529f2171 历史更新成功
+2026-07-25 11:19:29,644 - EduRAG - INFO - 查询处理耗时 2.00秒
+2026-07-25 11:20:51,951 - EduRAG - INFO - Redis 连接成功
+2026-07-25 11:21:41,420 - EduRAG - INFO - Redis 连接成功
