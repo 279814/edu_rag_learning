@@ -1492,3 +1492,43 @@ requirepass 123
 2026-07-25 11:19:29,644 - EduRAG - INFO - 查询处理耗时 2.00秒
 2026-07-25 11:20:51,951 - EduRAG - INFO - Redis 连接成功
 2026-07-25 11:21:41,420 - EduRAG - INFO - Redis 连接成功
+2026-07-25 11:42:33,399 - EduRAG - INFO - MySQL连接成功
+2026-07-25 11:42:33,403 - EduRAG - INFO - Redis 连接成功
+2026-07-25 11:42:37,799 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 11:42:39,558 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 11:42:42,682 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 11:42:43,124 - EduRAG - INFO - 使用cpu设备
+2026-07-25 11:42:43,148 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 11:42:45,984 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 11:43:16,720 - EduRAG - INFO - MySQL连接成功
+2026-07-25 11:43:16,725 - EduRAG - INFO - Redis 连接成功
+2026-07-25 11:43:18,995 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 11:43:21,822 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 11:43:24,912 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 11:43:25,374 - EduRAG - INFO - 使用cpu设备
+2026-07-25 11:43:25,400 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 11:43:28,929 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 11:43:30,844 - EduRAG - INFO - MySQL连接成功
+2026-07-25 11:43:30,848 - EduRAG - INFO - Redis 连接成功
+2026-07-25 11:43:33,146 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 11:43:35,954 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 11:43:38,140 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 11:43:38,617 - EduRAG - INFO - 使用cpu设备
+2026-07-25 11:43:38,642 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 11:43:39,714 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 12:05:07,156 - EduRAG - INFO - MySQL连接成功
+2026-07-25 12:05:07,160 - EduRAG - INFO - Redis 连接成功
+2026-07-25 12:05:13,462 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 12:05:17,306 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 12:05:22,292 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 12:05:22,763 - EduRAG - INFO - 使用cpu设备
+2026-07-25 12:05:22,804 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 12:05:26,878 - EduRAG - INFO - 对话历史表初始化成功
+2026-07-25 12:05:30,783 - EduRAG - INFO - MySQL连接成功
+2026-07-25 12:05:30,789 - EduRAG - INFO - Redis 连接成功
+2026-07-25 12:05:37,892 - EduRAG - INFO - BM25模型初始化完成
+2026-07-25 12:05:40,947 - EduRAG - INFO - 使用 cpu 设备
+2026-07-25 12:05:45,091 - EduRAG - INFO - 已加载集合 edurag_final
+2026-07-25 12:05:45,552 - EduRAG - INFO - 使用cpu设备
+2026-07-25 12:05:45,607 - EduRAG - INFO - 微调模型已加载：E:\developdata\code\edu_rag_learning\integrated_qa_system\rag_qa\bert_query_classifier
+2026-07-25 12:05:49,201 - EduRAG - INFO - 对话历史表初始化成功
